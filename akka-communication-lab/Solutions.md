@@ -63,4 +63,4 @@ c. Time taken by the Master to process all the Output Messages.
 
 
 
-![ScreenShot](https://raw.github.com/apawar2/actors-in-action/akka-communication-lab/solution/evaluation/actors_eval.eps)
+![ScreenShot](https://raw.github.com/apawar2/actors-in-action/akka-communication-lab/solution/evaluation/actors_eval.jpg)
