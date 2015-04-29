@@ -10,9 +10,9 @@ public class Receiver extends UntypedActor {
 
 	private final LoggingAdapter log = Logging.getLogger(getContext().system(), this);
 	/*
-		* onReceive(Object): is the message receiver function
-		*	it processes only one type of Message: Question
-		*	based on type of message it does some processing
+	* onReceive(Object): is the message receiver function
+	*	it processes only one type of Message: Question
+	*	based on type of message it does some processing
 	*/
 	@Override
 	public void onReceive(Object o) throws Exception {

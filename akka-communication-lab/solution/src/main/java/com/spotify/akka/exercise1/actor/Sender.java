@@ -14,18 +14,18 @@ public class Sender extends UntypedActor {
 	private final ActorRef receiver;
 
 	/*
-		* Sender(ActorRef): is a one argument constructor which takes
-		*	ActorRef as argument and saves in field
-		*	receiver for later use
+	* Sender(ActorRef): is a one argument constructor which takes
+	*	ActorRef as argument and saves in field
+	*	receiver for later use
 	*/
 	public Sender(ActorRef receiver) {
 		this.receiver = receiver;
 	}
 
 	/*
-		* onReceive(Object): is the message receiver function
-		*	it processes only two types of Messages: Start & Answer
-		*	based on type of message it does some processing
+	* onReceive(Object): is the message receiver function
+	*	it processes only two types of Messages: Start & Answer
+	*	based on type of message it does some processing
 	*/
 	@Override
 	public void onReceive(Object o) throws Exception {
