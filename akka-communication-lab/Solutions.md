@@ -45,3 +45,4 @@ To evaluate the performance of this application we created two set of tests:
 In this evaluation the range in which prime numbers are computed is kept constant (1000000L, 9999999L) and the number of workers is variable.
 
 workers=[1, 2, 4, 10, 100, 1000, 10000, 100000]
+![ScreenShot](https://raw.github.com/apawar2/actors-in-action/akka-communication-lab/solution/evaluation/actors_eval.eps)

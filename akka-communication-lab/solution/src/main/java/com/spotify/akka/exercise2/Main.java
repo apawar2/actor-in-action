@@ -10,7 +10,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		ActorSystem system = ActorSystem.create("system");
+		// Create actor sender of class Sender using ActorSystem
 		ActorRef sender = system.actorOf(Props.create(Sender.class), "sender");
+		// Send Start message to sender actor
 		sender.tell(new Start(), ActorRef.noSender());
 	}
 }
