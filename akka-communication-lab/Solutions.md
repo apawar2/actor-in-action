@@ -18,7 +18,7 @@ ActorSystem ---(child)--> Sender
             ---(child)--> Receiver
 
 
-This kind of an approach where the two Akka Actors play independent roles and still communicate for message & data exchanges can be used in simple
+This kind of an approach where the two Akka Actors play independent roles and still communicate for message & data exchanges can have applications like an Operating system. Where we have one Single ActorSystem which is our OS, this OS in turn has independent actor components like FileSystem, Networking etc. These components can talk to each other using Akka Messaging while executing their tasks concurrently and independently.
 
 **Exercise2: Solution**
 This exercise was created to learn and understand how one can create hierarchy of Akka Actors using the Akka ActorSystem. In this particular example, we had two Actors Sender and Receiver. Initially we create the Akka ActorSystem, this was in turn used to create the Sender Actor. In the Sender Actor, we had a constructor with no-argument which would initialize a Receiver Actor inside it. This lead to the following reference heirarchy:
@@ -37,6 +37,10 @@ ActorSystem ---(child)--> Master ---(child)--> Worker1
                                  ---(child)--> Worker2
                                  ---(child)--> Worker3
                                  ---(child)--> WorkerN
+
+**Exercise4: Analysis**
+
+Exercise 4 is logically exact copy of the Exercise 3 mentioned above. Except the fact that it has the flexibility to change the Ranges & Number of workers the Application is working on. It also does different time calculations which will help us to plot a graph for our analysis.
 
 ***Evaluation***
 To evaluate the performance of this application we created two set of tests:
@@ -65,3 +69,11 @@ We created a Graph using this data where we mapped: Total Time, Worker Time, Oth
 - `Total Time`: As the number of worker actors go on increasing, the Total time required for completion goes on decreasing until the number of workers=100. After this point, we see that the Total Time increases. Based on the results for Worker time and Other time above, we can safely conclude that after this point the creation & handling of the worker actors becomes an overhead for the Master actor. The task per worker reduces so much that the worker quickly computes the prime numbers in the given range and exits, while the Master is still spawning tasks for the remaining worker actors. Hence the operations carried by the Master thread become large overhead and do not contribute towards the performance of the Application.
 
 ![alt tag](https://raw.github.com/apawar2/actors-in-action/master/akka-communication-lab/solution/evaluation/basic.png)
+
+
+2. Range Evaluation:
+
+The motivation for this Analysis was to see how the Akka Application performs if we have variable Ranges.
+
+
+![alt tag](https://raw.github.com/apawar2/actors-in-action/master/akka-communication-lab/solution/evaluation/ranges.png)
