@@ -33,9 +33,9 @@ public class Sender extends UntypedActor {
 			receiver.tell(new Question("Hi"), getSelf()); //Send a Question to receiver
 		}
 		else if(o instanceof Answer) {
-			Answer answer = (Answer) o;										// keep reference to Answer object
-			log.info("Answer: " + answer.toString());			// log info: using Answer object toString()
-			getContext().system().shutdown();							// shutdown the system
+			Answer answer = (Answer) o;	// keep reference to Answer object
+			log.info("Answer: " + answer.toString());	// log info: using Answer object toString()
+			getContext().system().shutdown();	// shutdown the system
 		}
 		else{
 			// if the sender actor behavior does not match with the object message,
