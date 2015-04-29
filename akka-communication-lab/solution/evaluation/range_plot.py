@@ -20,12 +20,10 @@ def process_input_data(input_data):
 
     for k, v in data.iteritems():
         k = str(k)
-        print k,v
         v = v["process"]
         plot_data['median'][k] = []
         plot_data['err'][k] = []
         for n_workers in workers:
-            print k,v
             readings = [float(x)/1000000 for x in v[get_key(v, n_workers)]]
             tmp = numpy.array(readings)
             median, err = numpy.mean(tmp, axis = 0), numpy.std(tmp, axis = 0)
@@ -65,7 +63,7 @@ def plot(input_data):
     ax.grid(True)
     plt.xlim(-.1, 5.1)
     plt.xlabel('Number of Workers', fontsize = 24)
-    plt.ylabel('Time (ms)', fontsize = 24)
+    plt.ylabel('Total Time (ms)', fontsize = 24)
     ax.set_xticklabels(workers)
     plt.savefig('ranges.png')
 

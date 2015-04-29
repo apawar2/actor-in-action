@@ -98,6 +98,7 @@ y-Axis: Total Time to run the Application
 Graph: solution/evaluation/ranges.png
 
 ****Observation & Conclusion:****
-TBC(To be completed.)
+The idea of this evaluation was to check the behavior of the Akka Application under changing ranges. As seen in graph below. For both, range r1 and r2 the total time for execution increases as the number of worker increases.
+Next task would be to add more ranges and see if the behavior changes.
 
 ![alt tag](https://raw.github.com/apawar2/actors-in-action/master/akka-communication-lab/solution/evaluation/ranges.png)
