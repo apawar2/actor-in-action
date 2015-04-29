@@ -18,8 +18,8 @@ public class Receiver extends UntypedActor {
 	public void onReceive(Object o) throws Exception {
 
 		if(o instanceof Question) {													//check if the object o is of type Question
-			Question question = (Question) o;									// get the object of Question Class
-			log.info("Question: " + question.toString());			// log info: using question object toString()
+			Question question = (Question) o;	// get the object of Question Class
+			log.info("Question: " + question.toString());	// log info: using question object toString()
 			getSender().tell(new Answer("Hello"), getSelf());	//Send a message to Sender using tell()
 		}
 		else {

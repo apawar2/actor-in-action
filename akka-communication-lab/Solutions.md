@@ -74,6 +74,15 @@ We created a Graph using this data where we mapped: Total Time, Worker Time, Oth
 2. Range Evaluation:
 
 The motivation for this Analysis was to see how the Akka Application performs if we have variable Ranges.
+We have two variable ranges:
+- r1: [100000,999999]
+- r2: [100000,9999999] }
 
+And Worker Values as: iteration=[10, 100, 1000, 10000, 100000, 1000000]
+y-Axis: Total Time to run the Application
+Graph: solution/evaluation/ranges.png
+
+***Observation & Conclusion:***
+TBC(To be completed.)
 
 ![alt tag](https://raw.github.com/apawar2/actors-in-action/master/akka-communication-lab/solution/evaluation/ranges.png)
