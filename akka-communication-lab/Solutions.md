@@ -45,4 +45,22 @@ To evaluate the performance of this application we created two set of tests:
 In this evaluation the range in which prime numbers are computed is kept constant (1000000L, 9999999L) and the number of workers is variable.
 
 workers=[1, 2, 4, 10, 100, 1000, 10000, 100000]
+
+We created a Graph using this data where we mapped: Total Time, Worker Time, Other Time
+
+`Total Time`: Time required for complete execution of the Akka Application.( Includes: Worker Time and Other Time)
+`Worker Time`: Time required by the worker actors to search the prime numbers in the given range. We had the completion time for all the worker actors but we only take the MAX completion time since all the worker threads are running concurrently. Hence the time for all worker actor to complete ~ worker actor who took Highest time for completion.
+`Other Time`: This is summation of the following:
+a. Time to complete the Main Function.
+b. Time taken by the Master to process the Input Message.
+c. Time taken by the Master to process all the Output Messages.
+
+***Observation & Conclusion:***
+
+`Total Time`: As the number of worker actors go on increasing, the Total time required for completion goes on decreasing until the number of workers=100. After this point, we see that the Total Time increases.
+`Worker Time`: As the number of workers increases, the amount of work assigned to each worker decreases and hence we see that the Worker Time goes on decreasing.
+`Other Time`: As the number of workers increases, the amount of work for the Master to instantiate the worker actors, assign intervals to them and collection of results increases. This is the reason we see that the graph for Other time increases as the number of workers increase. This means that creation & handling of these workers is an overhead for the Master Actor.
+
+
+
 ![ScreenShot](https://raw.github.com/apawar2/actors-in-action/akka-communication-lab/solution/evaluation/actors_eval.eps)

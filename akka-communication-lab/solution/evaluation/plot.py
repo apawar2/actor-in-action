@@ -64,10 +64,10 @@ def plot(input_data):
     plt.xlabel('Number of Workers', fontsize = 24)
     plt.ylabel('Time (ms)', fontsize = 24)
     ax.set_xticklabels(workers)
-    plt.savefig('actors_eval.eps')
+    plt.savefig('actors_eval.jpg')
 
 
 if __name__ == '__main__':
-    dname = "data.json"
+    dname = "basic.json"
     data=json.load(open(dname, 'r'))
     plot(data)
