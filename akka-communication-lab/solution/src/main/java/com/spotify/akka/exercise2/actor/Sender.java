@@ -15,17 +15,17 @@ public class Sender extends UntypedActor {
 	private final LoggingAdapter log = Logging.getLogger(getContext().system(), this);
 
 	/*
-		* Sender(): is a no-argument constructor which
-		*	instantiates child actor of class Receiver
+	* Sender(): is a no-argument constructor which
+	*	instantiates child actor of class Receiver
 	*/
 	public Sender(){
 		getContext().actorOf(Props.create(Receiver.class),"receiver");
 	}
 
 	/*
-		* onReceive(Object): is the message receiver function
-		*	it processes two types of Messages: Start & Answer
-		*	based on type of message it does some processing
+	* onReceive(Object): is the message receiver function
+	*	it processes two types of Messages: Start & Answer
+	*	based on type of message it does some processing
 	*/
 	@Override
 	public void onReceive(Object o) throws Exception {
