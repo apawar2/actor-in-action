@@ -60,7 +60,7 @@ To evaluate the performance of this application we created two set of tests:
 1. Basic Evaluation(evaluation/basic_evaluation.py):
 In this evaluation the range in which prime numbers are computed is kept constant (1000000L, 9999999L) and the number of workers is variable.
 
-Graph: Refer to graph: solution/evaluation/basic.png
+`Graph: Refer to graph: solution/evaluation/basic.png`
 
 workers=[1, 2, 4, 10, 100, 1000, 10000, 100000]
 
@@ -91,14 +91,16 @@ We created a Graph using this data where we mapped: Total Time, Worker Time, Oth
 
 ***Range Evaluation***
 
-The motivation for this Analysis was to see how the Akka Application performs if we have variable Ranges.
+The motivation behind this Analysis was to see how the Akka Application performs if we have variable Ranges along with variable workers.
 We have two variable ranges:
 - r1: [100000,999999]
-- r2: [100000,9999999] }
+- r2: [100000,9999999]
 
 And Worker Values as: iteration=[10, 100, 1000, 10000, 100000, 1000000]
+
 y-Axis: Total Time to run the Application
-Graph: solution/evaluation/ranges.png
+
+`Graph: solution/evaluation/ranges.png`
 
 ****Observation & Conclusion:****
 The idea of this evaluation was to check the behavior of the Akka Application under changing ranges. As seen in graph below. For both, range r1 and r2 the total time for execution increases as the number of worker increases.
