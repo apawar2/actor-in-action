@@ -64,7 +64,7 @@ def plot(input_data):
     plt.xlabel('Number of Workers', fontsize = 24)
     plt.ylabel('Time (ms)', fontsize = 24)
     ax.set_xticklabels(workers)
-    plt.savefig('actors_eval.jpg')
+    plt.savefig('basic.png')
 
 
 if __name__ == '__main__':
