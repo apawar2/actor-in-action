@@ -12,7 +12,7 @@ ranges={'r1': [100000,999999], 'r2': [100000,9999999] }
 d = {}
 d['r1']={}
 d['r2'] = {}
-d['r3'] = {}
+os.chdir("../")
 
 for key in ranges:
 	d[key]['total']={}
@@ -42,6 +42,8 @@ for key in ranges:
 			d[key]['total'][i].append(total_time)
 			d[key]['process'][i].append(processing_time)
 			d[key]['worker'][i].append(worker_time)
+
+os.chdir("evaluation/")
 
 with open('ranges.json', 'w') as outfile:
     json.dump(d, outfile)

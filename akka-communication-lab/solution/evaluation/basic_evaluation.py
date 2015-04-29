@@ -41,7 +41,7 @@ for i in iteration:
 		d['worker'][i].append(worker_time)
 
 
-os.chdir("evaluation")
+os.chdir("evaluation/")
 
 with open('basic.json', 'w') as outfile:
     json.dump(d, outfile)

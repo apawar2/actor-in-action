@@ -20,6 +20,9 @@ ActorSystem ---(child)--> Sender
 
 This kind of an approach where the two Akka Actors play independent roles and still communicate for message & data exchanges can have applications like an Operating system. Where we have one Single ActorSystem which is our OS, this OS in turn has independent actor components like FileSystem, Networking etc. These components can talk to each other using Akka Messaging while executing their tasks concurrently and independently.
 
+Directory: akka-communication-lab/solution
+`Command to Execute: $ mvn exec:java -Dexec.mainClass="com.spotify.akka.exercise1.Main"`
+
 **Exercise2: Solution**
 This exercise was created to learn and understand how one can create hierarchy of Akka Actors using the Akka ActorSystem. In this particular example, we had two Actors Sender and Receiver. Initially we create the Akka ActorSystem, this was in turn used to create the Sender Actor. In the Sender Actor, we had a constructor with no-argument which would initialize a Receiver Actor inside it. This lead to the following reference heirarchy:
 
@@ -27,6 +30,9 @@ ActorSystem ---(child)--> Sender ---(child)--> Receiver
 
 This is a kind of Master-Slave relationship, where Sender is the Master and Receiver is its Slave. This kind of
 pattern can be used to do parallel computations where the Master spawns the Slaves which are used to do the desired computation. Exercise 3 below is the perfect example of this design.
+
+Directory: akka-communication-lab/solution
+`Command to Execute: $ mvn exec:java -Dexec.mainClass="com.spotify.akka.exercise2.Main"`
 
 **Exercise3: Solution**
 The purpose of this exercise is to demonstrate how Akka can be used to distribute large set of data among multiple actors to perform computation simultaneously.
@@ -37,6 +43,9 @@ ActorSystem ---(child)--> Master ---(child)--> Worker1
                                  ---(child)--> Worker2
                                  ---(child)--> Worker3
                                  ---(child)--> WorkerN
+
+Directory: akka-communication-lab/solution
+`Command to Execute: $  mvn exec:java -Dexec.mainClass="com.spotify.akka.exercise3.PrimesFinder"`
 
 **Exercise4: Analysis**
 
