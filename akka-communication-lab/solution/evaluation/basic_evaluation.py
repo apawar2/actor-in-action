@@ -39,7 +39,9 @@ for i in iteration:
 		d['total'][i].append(total_time)
 		d['process'][i].append(processing_time)
 		d['worker'][i].append(worker_time)
-		print "Completed"
+
+
+os.chdir("evaluation")
 
 with open('basic.json', 'w') as outfile:
     json.dump(d, outfile)

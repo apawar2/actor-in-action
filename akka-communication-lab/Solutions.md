@@ -44,6 +44,8 @@ To evaluate the performance of this application we created two set of tests:
 1. Basic Evaluation(evaluation/basic_evaluation.py):
 In this evaluation the range in which prime numbers are computed is kept constant (1000000L, 9999999L) and the number of workers is variable.
 
+Graph: Refer to graph: solution/evaluation/basic.png
+
 workers=[1, 2, 4, 10, 100, 1000, 10000, 100000]
 
 We created a Graph using this data where we mapped: Total Time, Worker Time, Other Time
@@ -60,8 +62,6 @@ We created a Graph using this data where we mapped: Total Time, Worker Time, Oth
 
 - `Worker Time`: As the number of workers increases, the amount of work assigned to each worker decreases and hence we see that the Worker Time goes on decreasing.
 - `Other Time`: As the number of workers increases, the amount of work for the Master to instantiate the worker actors, assign intervals to them and collection of results increases. This is the reason we see that the graph for Other time increases as the number of workers increase. This means that creation & handling of these workers is an overhead for the Master Actor.
-- `Total Time`: As the number of worker actors go on increasing, the Total time required for completion goes on decreasing until the number of workers=100. After this point, we see that the Total Time increases.
+- `Total Time`: As the number of worker actors go on increasing, the Total time required for completion goes on decreasing until the number of workers=100. After this point, we see that the Total Time increases. Based on the results for Worker time and Other time above, we can safely conclude that after this point the creation & handling of the worker actors becomes an overhead for the Master actor. The task per worker reduces so much that the worker quickly computes the prime numbers in the given range and exits, while the Master is still spawning tasks for the remaining worker actors. Hence the operations carried by the Master thread become large overhead and do not contribute towards the performance of the Application.
 
 ![alt tag](https://raw.github.com/apawar2/actors-in-action/master/akka-communication-lab/solution/evaluation/basic.png)
-
-![ScreenShot](https://raw.github.com/apawar2/actors-in-action/akka-communication-lab/solution/evaluation/basic.png)
