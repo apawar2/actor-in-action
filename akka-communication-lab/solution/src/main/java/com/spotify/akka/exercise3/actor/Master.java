@@ -70,7 +70,7 @@ public class Master extends UntypedActor {
 			}
 		}
 		/*
-		*	Output Message: Appends the primes list obtained from this message
+		* Output Message: Appends the primes list obtained from this message
 		* to Final Output Set<Long> and decreases the counter: workerCount
 		* if(workerCount == 0) all the worker actors have returned their
 		* output primes Set<Long> now it shuts down
