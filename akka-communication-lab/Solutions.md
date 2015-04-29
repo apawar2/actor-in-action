@@ -62,5 +62,6 @@ We created a Graph using this data where we mapped: Total Time, Worker Time, Oth
 - `Other Time`: As the number of workers increases, the amount of work for the Master to instantiate the worker actors, assign intervals to them and collection of results increases. This is the reason we see that the graph for Other time increases as the number of workers increase. This means that creation & handling of these workers is an overhead for the Master Actor.
 - `Total Time`: As the number of worker actors go on increasing, the Total time required for completion goes on decreasing until the number of workers=100. After this point, we see that the Total Time increases.
 
+![alt tag](https://raw.github.com/apawar2/actors-in-action/master/akka-communication-lab/solution/evaluation/basic.png)
 
-![ScreenShot](https://raw.github.com/apawar2/actors-in-action/akka-communication-lab/solution/evaluation/actors_eval.jpg)
+![ScreenShot](https://raw.github.com/apawar2/actors-in-action/akka-communication-lab/solution/evaluation/basic.png)
