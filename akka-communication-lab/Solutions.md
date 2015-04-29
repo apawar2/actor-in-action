@@ -7,8 +7,6 @@
 - Learn how to exchange messages between actors
 - Get familiar with common *master/workers* pattern
 
-### Realization ###
-
 
 **Exercise1: Solution**
 Based on the problem description and steps explained following implementation was done to complete the exercise.
@@ -21,6 +19,7 @@ ActorSystem ---(child)--> Sender
 This kind of an approach where the two Akka Actors play independent roles and still communicate for message & data exchanges can have applications like an Operating system. Where we have one Single ActorSystem which is our OS, this OS in turn has independent actor components like FileSystem, Networking etc. These components can talk to each other using Akka Messaging while executing their tasks concurrently and independently.
 
 Directory: akka-communication-lab/solution
+
 `Command to Execute: $ mvn exec:java -Dexec.mainClass="com.spotify.akka.exercise1.Main"`
 
 **Exercise2: Solution**
@@ -32,6 +31,7 @@ This is a kind of Master-Slave relationship, where Sender is the Master and Rece
 pattern can be used to do parallel computations where the Master spawns the Slaves which are used to do the desired computation. Exercise 3 below is the perfect example of this design.
 
 Directory: akka-communication-lab/solution
+
 `Command to Execute: $ mvn exec:java -Dexec.mainClass="com.spotify.akka.exercise2.Main"`
 
 **Exercise3: Solution**
@@ -45,6 +45,7 @@ ActorSystem ---(child)--> Master ---(child)--> Worker1
                                  ---(child)--> WorkerN
 
 Directory: akka-communication-lab/solution
+
 `Command to Execute: $  mvn exec:java -Dexec.mainClass="com.spotify.akka.exercise3.PrimesFinder"`
 
 **Exercise4: Analysis**
