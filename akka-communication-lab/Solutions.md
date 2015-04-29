@@ -18,7 +18,7 @@ ActorSystem ---(child)--> Sender
 
 This kind of an approach where the two Akka Actors play independent roles and still communicate for message & data exchanges can have applications like an Operating system. Where we have one Single ActorSystem which is our OS, this OS in turn has independent actor components like FileSystem, Networking etc. These components can talk to each other using Akka Messaging while executing their tasks concurrently and independently.
 
-Directory: akka-communication-lab/solution
+`Directory: akka-communication-lab/solution`
 
 `Command to Execute: $ mvn exec:java -Dexec.mainClass="com.spotify.akka.exercise1.Main"`
 
@@ -30,7 +30,7 @@ ActorSystem ---(child)--> Sender ---(child)--> Receiver
 This is a kind of Master-Slave relationship, where Sender is the Master and Receiver is its Slave. This kind of
 pattern can be used to do parallel computations where the Master spawns the Slaves which are used to do the desired computation. Exercise 3 below is the perfect example of this design.
 
-Directory: akka-communication-lab/solution
+`Directory: akka-communication-lab/solution`
 
 `Command to Execute: $ mvn exec:java -Dexec.mainClass="com.spotify.akka.exercise2.Main"`
 
@@ -44,7 +44,7 @@ ActorSystem ---(child)--> Master ---(child)--> Worker1
                                  ---(child)--> Worker3
                                  ---(child)--> WorkerN
 
-Directory: akka-communication-lab/solution
+`Directory: akka-communication-lab/solution`
 
 `Command to Execute: $  mvn exec:java -Dexec.mainClass="com.spotify.akka.exercise3.PrimesFinder"`
 
@@ -73,7 +73,8 @@ We created a Graph using this data where we mapped: Total Time, Worker Time, Oth
 - Time taken by the Master to process the Input Message.
 - Time taken by the Master to process all the Output Messages.
 
-Directory: akka-communication-lab/solution/evaluation
+`Directory: akka-communication-lab/solution/evaluation`
+
 `Command to Execute: $  python basic_evaluation.py`
 
 ****Observation & Conclusion:****
