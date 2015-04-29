@@ -77,6 +77,8 @@ We created a Graph using this data where we mapped: Total Time, Worker Time, Oth
 
 `Command to Execute: $  python basic_evaluation.py`
 
+`Command to Generate Graph: $  python basic_plot.py`
+
 ****Observation & Conclusion:****
 
 
