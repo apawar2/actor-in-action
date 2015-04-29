@@ -24,9 +24,9 @@ public class Master extends UntypedActor {
 	private final Set<Long> finalOutput;
 
 	/*
-		* Master(int): is a one argument constructor which takes
-		*	number of workers ActorRef as argument and saves in field
-		*	receiver for later use
+	* Master(int): is a one argument constructor which takes
+	*	number of workers ActorRef as argument and saves in field
+	*	receiver for later use
 	*/
 	public Master(int numberOfWorkers) {
 		this.numberOfWorkers = numberOfWorkers;
@@ -35,22 +35,22 @@ public class Master extends UntypedActor {
 
 		//Instantiate the workers
 		for(long i=0; i < this.numberOfWorkers; i++) {
-			String workerName = "worker" + i; 														//assign unique name to each worker
+			String workerName = "worker" + i;	//assign unique name to each worker
 			getContext().actorOf(Props.create(Worker.class), workerName); // instantiate the worker
 		}
 	}
 
 	/*
-		* onReceive(Object): is the message receiver function
-		*	it processes two types of Messages: Input & Output
-		*	Input Message: Extracts the interval from Input Message, Divides it into
-		* equal size Intervals & Distributes them for processing among the workers
+	* onReceive(Object): is the message receiver function
+	*	it processes two types of Messages: Input & Output
+	*	Input Message: Extracts the interval from Input Message, Divides it into
+	* equal size Intervals & Distributes them for processing among the workers
 	*/
 	@Override
 	public void onReceive(Object o) throws Exception {
 		/*
-			*	Input Message: Extracts the interval from Input Message, Divides it into
-			* equal size Intervals & Distributes them for processing among the workers
+		*	Input Message: Extracts the interval from Input Message, Divides it into
+		* equal size Intervals & Distributes them for processing among the workers
 		*/
 		if(o instanceof Input) {
 
@@ -70,19 +70,19 @@ public class Master extends UntypedActor {
 			}
 		}
 		/*
-			*	Output Message: Appends the primes list obtained from this message
-			* to Final Output Set<Long> and decreases the counter: workerCount
-			* if(workerCount == 0) all the worker actors have returned their
-			* output primes Set<Long> now it shuts down
+		*	Output Message: Appends the primes list obtained from this message
+		* to Final Output Set<Long> and decreases the counter: workerCount
+		* if(workerCount == 0) all the worker actors have returned their
+		* output primes Set<Long> now it shuts down
 		*/
 		else if(o instanceof Output) {
 				Output output = (Output) o;
-				finalOutput.addAll(output.getPrimes());		// append the results received to finalOutput
-				workerCount--; 														// decrease counter by 1
+				finalOutput.addAll(output.getPrimes());	// append the results received to finalOutput
+				workerCount--;	// decrease counter by 1
 
-			if(workerCount == 0) { 											// all worker actors have returned results
+			if(workerCount == 0) {	// all worker actors have returned results
 				System.out.println("Primes for Range: " + finalOutput.toString());
-				getContext().system().shutdown();					// shutdown the system
+				getContext().system().shutdown();	// shutdown the system
 			}
 		}
 		else {
