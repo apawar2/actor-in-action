@@ -25,8 +25,8 @@ public class Master extends UntypedActor {
 
 	/*
 	* Master(int): is a one argument constructor which takes
-	*	number of workers ActorRef as argument and saves in field
-	*	receiver for later use
+	* number of workers ActorRef as argument and saves in field
+	* receiver for later use
 	*/
 	public Master(int numberOfWorkers) {
 		this.numberOfWorkers = numberOfWorkers;
