@@ -42,14 +42,14 @@ public class Master extends UntypedActor {
 
 	/*
 	* onReceive(Object): is the message receiver function
-	*	it processes two types of Messages: Input & Output
-	*	Input Message: Extracts the interval from Input Message, Divides it into
+	* it processes two types of Messages: Input & Output
+	* Input Message: Extracts the interval from Input Message, Divides it into
 	* equal size Intervals & Distributes them for processing among the workers
 	*/
 	@Override
 	public void onReceive(Object o) throws Exception {
 		/*
-		*	Input Message: Extracts the interval from Input Message, Divides it into
+		* Input Message: Extracts the interval from Input Message, Divides it into
 		* equal size Intervals & Distributes them for processing among the workers
 		*/
 		if(o instanceof Input) {
