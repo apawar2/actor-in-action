@@ -52,7 +52,9 @@ Directory: akka-communication-lab/solution
 
 Exercise 4 is logically exact copy of the Exercise 3 mentioned above. Except the fact that it has the flexibility to change the Ranges & Number of workers the Application is working on. It also does different time calculations which will help us to plot a graph for our analysis.
 
-***Evaluation***
+
+
+***Basic Evaluation***
 To evaluate the performance of this application we created two set of tests:
 
 1. Basic Evaluation(evaluation/basic_evaluation.py):
@@ -71,7 +73,10 @@ We created a Graph using this data where we mapped: Total Time, Worker Time, Oth
 - Time taken by the Master to process the Input Message.
 - Time taken by the Master to process all the Output Messages.
 
-***Observation & Conclusion:***
+Directory: akka-communication-lab/solution/evaluation
+`Command to Execute: $  python basic_evaluation.py`
+
+****Observation & Conclusion:****
 
 
 - `Worker Time`: As the number of workers increases, the amount of work assigned to each worker decreases and hence we see that the Worker Time goes on decreasing.
@@ -81,7 +86,7 @@ We created a Graph using this data where we mapped: Total Time, Worker Time, Oth
 ![alt tag](https://raw.github.com/apawar2/actors-in-action/master/akka-communication-lab/solution/evaluation/basic.png)
 
 
-2. Range Evaluation:
+***Range Evaluation***
 
 The motivation for this Analysis was to see how the Akka Application performs if we have variable Ranges.
 We have two variable ranges:
