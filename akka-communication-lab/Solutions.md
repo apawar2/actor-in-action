@@ -42,11 +42,8 @@ This exercise creates an ActorSystem which is used to instantiate a Master Actor
 
 <code>
 ActorSystem ---(child)--> Master ---(child)--> Worker1
-
                                  ---(child)--> Worker2
-
                                  ---(child)--> Worker3
-
                                  ---(child)--> WorkerN
 </code>
 
