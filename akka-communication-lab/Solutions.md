@@ -9,6 +9,7 @@
 
 
 **Exercise1: Solution**
+
 Based on the problem description and steps explained following implementation was done to complete the exercise.
 The essence of this exercise was to understand how two actors can be created using Akka which operate independently and are able to communicate with each other using Akka's Messaging Interface for a Akka ActorSystem.The reference heirarchy in this case was:
 
@@ -25,6 +26,7 @@ This kind of an approach where the two Akka Actors play independent roles and st
 `Command to Execute: $ mvn exec:java -Dexec.mainClass="com.spotify.akka.exercise1.Main"`
 
 **Exercise2: Solution**
+
 This exercise was created to learn and understand how one can create hierarchy of Akka Actors using the Akka ActorSystem. In this particular example, we had two Actors Sender and Receiver. Initially we create the Akka ActorSystem, this was in turn used to create the Sender Actor. In the Sender Actor, we had a constructor with no-argument which would initialize a Receiver Actor inside it. This lead to the following reference heirarchy:
 
 <pre><code>
@@ -39,6 +41,7 @@ pattern can be used to do parallel computations where the Master spawns the Slav
 `Command to Execute: $ mvn exec:java -Dexec.mainClass="com.spotify.akka.exercise2.Main"`
 
 **Exercise3: Solution**
+
 The purpose of this exercise is to demonstrate how Akka can be used to distribute large set of data among multiple actors to perform computation simultaneously.
 
 This exercise creates an ActorSystem which is used to instantiate a Master Actor. The Master actor has one-argument constructor which takes number of workers as input and instantiates Worker actors in the constructor. This initialization of Master Actor leads to the following Hierarchy.
@@ -61,10 +64,9 @@ Exercise 4 is logically exact copy of the Exercise 3 mentioned above. Except the
 
 
 
-***Basic Evaluation***
 To evaluate the performance of this application we created two set of tests:
 
-1. Basic Evaluation(evaluation/basic_evaluation.py):
+***Basic Evaluation***(evaluation/basic_evaluation.py):
 In this evaluation the range in which prime numbers are computed is kept constant (1000000L, 9999999L) and the number of workers is variable.
 
 `Graph: Refer to graph: solution/evaluation/basic.png`
@@ -73,9 +75,11 @@ workers=[1, 2, 4, 10, 100, 1000, 10000, 100000]
 
 We created a Graph using this data where we mapped: Total Time, Worker Time, Other Time
 
-`Total Time`: Time required for complete execution of the Akka Application.( Includes: Worker Time and Other Time)
-`Worker Time`: Time required by the worker actors to search the prime numbers in the given range. We had the completion time for all the worker actors but we only take the MAX completion time since all the worker threads are running concurrently. Hence the time for all worker actor to complete ~ worker actor who took Highest time for completion.
-`Other Time`: This is summation of the following:
+a. `Total Time`: Time required for complete execution of the Akka Application.( Includes: Worker Time and Other Time)
+
+b. `Worker Time`: Time required by the worker actors to search the prime numbers in the given range. We had the completion time for all the worker actors but we only take the MAX completion time since all the worker threads are running concurrently. Hence the time for all worker actor to complete ~ worker actor who took Highest time for completion.
+
+c. `Other Time`: This is summation of the following:
 - Time to complete the Main Function.
 - Time taken by the Master to process the Input Message.
 - Time taken by the Master to process all the Output Messages.
