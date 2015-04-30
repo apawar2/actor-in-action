@@ -40,6 +40,7 @@ The purpose of this exercise is to demonstrate how Akka can be used to distribut
 
 This exercise creates an ActorSystem which is used to instantiate a Master Actor. The Master actor has one-argument constructor which takes number of workers as input and instantiates Worker actors in the constructor. This initialization of Master Actor leads to the following Hierarchy.
 
+
 ActorSystem ---(child)--> Master ---(child)--> Worker1
 
                                  ---(child)--> Worker2
@@ -47,7 +48,7 @@ ActorSystem ---(child)--> Master ---(child)--> Worker1
                                  ---(child)--> Worker3
 
                                  ---(child)--> WorkerN
-                                 
+
 
 `Directory: akka-communication-lab/solution`
 
