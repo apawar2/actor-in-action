@@ -39,7 +39,6 @@ pattern can be used to do parallel computations where the Master spawns the Slav
 The purpose of this exercise is to demonstrate how Akka can be used to distribute large set of data among multiple actors to perform computation simultaneously.
 
 This exercise creates an ActorSystem which is used to instantiate a Master Actor. The Master actor has one-argument constructor which takes number of workers as input and instantiates Worker actors in the constructor. This initialization of Master Actor leads to the following Hierarchy.
-
 <pre><code>
 ActorSystem ---(child)--> Master ---(child)--> Worker1
 
