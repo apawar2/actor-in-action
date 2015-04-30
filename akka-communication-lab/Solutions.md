@@ -13,6 +13,7 @@ Based on the problem description and steps explained following implementation wa
 The essence of this exercise was to understand how two actors can be created using Akka which operate independently and are able to communicate with each other using Akka's Messaging Interface for a Akka ActorSystem.The reference heirarchy in this case was:
 
 ActorSystem ---(child)--> Sender
+
             ---(child)--> Receiver
 
 
@@ -40,9 +41,13 @@ The purpose of this exercise is to demonstrate how Akka can be used to distribut
 This exercise creates an ActorSystem which is used to instantiate a Master Actor. The Master actor has one-argument constructor which takes number of workers as input and instantiates Worker actors in the constructor. This initialization of Master Actor leads to the following Hierarchy.
 
 ActorSystem ---(child)--> Master ---(child)--> Worker1
+
                                  ---(child)--> Worker2
+
                                  ---(child)--> Worker3
+
                                  ---(child)--> WorkerN
+                                 
 
 `Directory: akka-communication-lab/solution`
 
